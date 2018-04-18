@@ -1,0 +1,9 @@
+shiro:
+  loginUrl: /page/401
+  successUrl: /page/index
+  unauthorizedUrl: /page/403
+  userNativeSessionManager: true
+  sessionManager:
+    cookie:
+      name: BIUSID
+

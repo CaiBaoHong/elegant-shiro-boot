@@ -1,2 +1,2 @@
 # elegant-shiro-boot
-演示Springoot整合
+演示SpringBoot优雅整合Shiro，以及3种实现访问、权限控制的方式

@@ -1,0 +1,63 @@
+//引入spring boot gradle插件
+buildscript {
+    ext {
+        springIOVersion = 'Cairo-RELEASE'
+        springBootVersion = '2.0.1.RELEASE'
+    }
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public'}
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+//所有模块的配置，含elegant-shiro
+allprojects{
+    group 'com.abc.shiro'
+    version '1.0'
+}
+
+//所有子模块的配置，不含elegant-shiro
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    //编译设置
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    compileJava.options.encoding = "UTF-8"
+    compileTestJava.options.encoding = "UTF-8"
+
+    //设置maven阿里云镜像
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public'}
+    }
+
+    //设置后依赖不用写版本号
+    dependencyManagement {
+        imports {
+            mavenBom "io.spring.platform:platform-bom:${springIOVersion}"
+            mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+        }
+    }
+
+    //子模块公共的依赖，不包括elegant-shiro模块
+    dependencies {
+        //spring boot的starter
+        compile 'org.springframework.boot:spring-boot-starter-web'
+        compile 'org.springframework.boot:spring-boot-starter-aop'
+        compile 'org.springframework.boot:spring-boot-devtools'
+        testCompile 'org.springframework.boot:spring-boot-starter-test'
+        //shiro
+        compile 'org.apache.shiro:shiro-spring-boot-web-starter:1.4.0'
+        //其它
+        compile 'com.alibaba:fastjson:1.2.47'
+
+    }
+
+}
+
