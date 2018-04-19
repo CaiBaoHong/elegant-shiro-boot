@@ -61,7 +61,7 @@ public class ShiroConfig {
 
         chain.addPathDefinition("/t4/changePwd", "authc");//需要登录
         chain.addPathDefinition("/t4/user", "user");//已登录或“记住我”的用户可以访问
-        chain.addPathDefinition("/t4/mvnBuild", "authc,perms[mvn:build]");//需要mvn:build权限
+        chain.addPathDefinition("/t4/mvnBuild", "authc,perms[mvn:install]");//需要mvn:build权限
         chain.addPathDefinition("/t4/gradleBuild", "authc,perms[gradle:build]");//需要gradle:build权限
         chain.addPathDefinition("/t4/js", "authc,roles[js]");//需要js角色
         chain.addPathDefinition("/t4/python", "authc,roles[python]");//需要python角色

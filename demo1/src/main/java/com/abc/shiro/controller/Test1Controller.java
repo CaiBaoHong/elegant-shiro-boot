@@ -49,10 +49,10 @@ public class Test1Controller {
     // 要求登录的用户具有mvn:build权限才能访问
     // 由于UserService模拟返回的用户信息中有该权限，所以这个接口可以访问
     // 如果没有登录，UnauthenticatedException
-    @RequiresPermissions("mvn:build")
-    @GetMapping("/mvnBuild")
-    public String mvnBuild() {
-        return "mvn:build";
+    @RequiresPermissions("mvn:install")
+    @GetMapping("/mvnInstall")
+    public String mvnInstall() {
+        return "mvn:install";
     }
 
     // 要求登录的用户具有mvn:build权限才能访问

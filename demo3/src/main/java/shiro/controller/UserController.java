@@ -1,27 +1,20 @@
-package com.abc.shiro.controller;
+package shiro.controller;
 
-import com.abc.shiro.entity.User;
-import com.abc.shiro.service.UserService;
-import com.abc.shiro.vo.Json;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.annotation.RequiresGuest;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Set;
+import shiro.entity.User;
+import shiro.vo.Json;
 
 /**
  * created by CaiBaoHong at 2018/4/17 16:41<br>

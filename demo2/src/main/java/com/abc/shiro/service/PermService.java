@@ -27,7 +27,7 @@ public class PermService {
         //c++程序员的权限
         perms.add("hardware:debug");
         //java程序员的权限
-        perms.add("mvn:build");
+        perms.add("mvn:install");
         perms.add("mvn:clean");
         perms.add("mvn:test");
         return perms;
